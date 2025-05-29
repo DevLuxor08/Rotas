@@ -22,7 +22,8 @@ module.exports = {
                 "color-third": "#39005A",
                 "dark-gray": "#5A5A5A",
                 "gray-70": "#646E82",
-                "red-error": "#ED3A3A"
+                "red-error": "#ED3A3A",
+                "Orange": "#FC6E31"
             }
         }
     },

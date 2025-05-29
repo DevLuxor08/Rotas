@@ -17,6 +17,7 @@ function Solucoes(){
     ], [])
 
     
+    
 
     return(
         <div className="mt-[110px]">

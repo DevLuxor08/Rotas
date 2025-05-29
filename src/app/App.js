@@ -9,6 +9,8 @@ import Sobre from "../pages/sobre";
 import Contato from "../pages/contato";
 import Quemsomos from "../pages/quemsomos";
 import Solucoes from "../pages/solucoes";
+import Painel from "../pages/Painel";
+import Login from "../pages/Login";
 
 // AQUI FICA O CONTEUDO DO SEU SITE
 function App() {
@@ -17,13 +19,15 @@ function App() {
     <BrowserRouter>
       <div className="Content flex min-h-screen flex-col">
         <Header/>
-        <main className="flex-grow container mx-auto p-4">
+        <main className="flex-grow flex container mx-auto p-4 mt-[100px] ">
           <Routes>
-            <Route path="/" element={<Home/>} ></Route> {/* PATH = ROTA NO NAVEGADOR | ELEMENT É O CONTEUDO  */} {/* PRECISA DA INICIAL MAISCULA POIS SAO COMPONETES */}
-            <Route path="/Sobre" element={<Sobre/>}></Route>
-            <Route path="/Contato" element={<Contato/>}></Route>
-            <Route path="/Quemsomos" element={<Quemsomos/>}></Route>
-            <Route path="/Solucoes" element={<Solucoes/>}></Route>
+            <Route path="/" element={<Home/>} /> {/* PATH = ROTA NO NAVEGADOR | ELEMENT É O CONTEUDO  */} {/* PRECISA DA INICIAL MAISCULA POIS SAO COMPONETES */}
+            <Route path="/Sobre" element={<Sobre/>}/>
+            <Route path="/Contato" element={<Contato/>}/>
+            <Route path="/Quemsomos" element={<Quemsomos/>}/>
+            <Route path="/Solucoes" element={<Solucoes/>}/>
+            <Route path="/Painel" element={<Painel/>}/>
+            <Route path="/Login" element={<Login/>}/>
           </Routes>
         </main>
         
