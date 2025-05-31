@@ -11,6 +11,7 @@ import Quemsomos from "../pages/quemsomos";
 import Solucoes from "../pages/solucoes";
 import Painel from "../pages/Painel";
 import Login from "../pages/Login";
+import PrivateRoute from "../components/auth";
 
 // AQUI FICA O CONTEUDO DO SEU SITE
 function App() {
@@ -26,7 +27,7 @@ function App() {
             <Route path="/Contato" element={<Contato/>}/>
             <Route path="/Quemsomos" element={<Quemsomos/>}/>
             <Route path="/Solucoes" element={<Solucoes/>}/>
-            <Route path="/Painel" element={<Painel/>}/>
+            <Route path="/Painel" element={<PrivateRoute><Painel/></PrivateRoute>}/> {/* A ROTA FICA ENTRE A FUNÇÂO DE VALIDAÇÂO  */}
             <Route path="/Login" element={<Login/>}/>
           </Routes>
         </main>

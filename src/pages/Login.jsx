@@ -1,13 +1,38 @@
 import { useState } from "react";
+import users from "../data/users-constants";
+import { useNavigate } from "react-router-dom";
+import { login } from "../utils/storage";
 
 function Login (){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [error, setError] = useState('');
     console.log(email);
     console.log(senha);
+    const navigate = useNavigate();
 
+    function handlelogin(){
+        // const userFound = users.filter(user => user.email === email); // RETORNAR VARIOS 
 
-
+        const userFound = users.find(user => user.email.toLowerCase().trim() === email.toLowerCase().trim()); // -FIND- RETORNA O PRIMEIRO QUE ENCONTRAR - PARAMENTRO PRIMARIO
+        console.log(userFound)
+        if (userFound){
+            const match = senha === userFound.senha
+            if(match){
+                //USUARIO AUTENTICADO
+                setError('');
+                login(JSON.stringify(userFound));
+                navigate('/painel');
+                return;
+            }
+            //SENHA INVALIDA
+            setError('Senha Invalida')
+            return;
+        }
+        //USUARIO NAO ENCONTRADO
+        setError('Usuario não foi encontrado ')
+        return;
+     }
 
     return(
         <div className="flex-grow flex shadow m-6 rounded-[12px] bg-slate-200 justify-center items-center">
@@ -27,13 +52,11 @@ function Login (){
 
                 <span>Esqueceu sua Senha?</span>
 
-                <button className="bg-teal-400 hover:bg-teal-600 rounded-[8px] uppercase font-bold min-h-[40px] " type="submit">Entrar</button>
+                <button onClick={handlelogin} className="bg-teal-400 hover:bg-teal-600 rounded-[8px] uppercase font-bold min-h-[40px] " type="submit">Entrar</button>
 
-            </div>
-            
+                <p className="text-center " >{error}</p>
+            </div>      
         </div>
-    );
-
-}
+    );}
 
 export default Login;
